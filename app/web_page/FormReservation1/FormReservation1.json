@@ -3,8 +3,9 @@
   "name" : "FormReservation",
   "type" : "page",
   "uuid" : "f22624e3-8073-4301-82de-d6d6b0765588",
-  "modelVersion" : "2.4",
-  "lastUpdate" : 1774605909504,
+  "modelVersion" : "2.6",
+  "previousArtifactVersion" : "2.4",
+  "lastUpdate" : 1774933982347,
   "description" : "Page generated with Bonita UI designer",
   "rows" : [
     [

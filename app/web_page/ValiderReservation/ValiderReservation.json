@@ -3,8 +3,9 @@
   "name" : "ValiderReservation",
   "type" : "page",
   "uuid" : "458d1854-fe1c-4130-95a0-be2cb4e7eb7e",
-  "modelVersion" : "2.4",
-  "lastUpdate" : 1774491469768,
+  "modelVersion" : "2.6",
+  "previousArtifactVersion" : "2.4",
+  "lastUpdate" : 1774933982642,
   "description" : "Page generated with Bonita UI designer",
   "rows" : [
     [

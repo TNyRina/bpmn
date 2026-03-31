@@ -3,8 +3,9 @@
   "name" : "home",
   "type" : "page",
   "uuid" : "313bf9c6-9d28-4806-b322-a86ab49298c2",
-  "modelVersion" : "2.4",
-  "lastUpdate" : 1774481335436,
+  "modelVersion" : "2.6",
+  "previousArtifactVersion" : "2.4",
+  "lastUpdate" : 1774933982943,
   "description" : "Page generated with Bonita UI designer",
   "rows" : [
     [
