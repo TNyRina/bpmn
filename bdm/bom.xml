@@ -1,41 +1,61 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<businessObjectModel xmlns="http://documentation.bonitasoft.com/bdm-xml-schema/1.0" modelVersion="1.0" productVersion="8.0.0">
+<businessObjectModel xmlns="http://documentation.bonitasoft.com/bdm-xml-schema/1.0" modelVersion="1.0">
     <businessObjects>
-        <businessObject qualifiedName="ny.rina.model.Chambre">
-            <fields>
-                <field type="STRING" length="255" name="numero" nullable="true" collection="false"/>
-                <field type="BOOLEAN" length="255" name="disponible" nullable="true" collection="false"/>
-                <field type="STRING" length="255" name="type" nullable="true" collection="false"/>
-            </fields>
-            <uniqueConstraints/>
-            <queries/>
-            <indexes/>
-        </businessObject>
-        <businessObject qualifiedName="ny.rina.model.Client">
+        <businessObject qualifiedName="com.company.model.Article">
             <fields>
                 <field type="STRING" length="255" name="nom" nullable="true" collection="false"/>
-                <field type="STRING" length="255" name="cin" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="stock" nullable="true" collection="false"/>
             </fields>
             <uniqueConstraints/>
             <queries/>
             <indexes/>
         </businessObject>
-        <businessObject qualifiedName="ny.rina.model.Reservation">
+        <businessObject qualifiedName="com.company.model.Chambre">
             <fields>
-                <field type="INTEGER" length="255" name="id_client" nullable="true" collection="false"/>
-                <field type="INTEGER" length="255" name="id_chambre" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="numero" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="etat" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.company.model.TypeChambre" fetchType="LAZY" name="typeChambre" nullable="true" collection="false"/>
             </fields>
             <uniqueConstraints/>
             <queries/>
             <indexes/>
         </businessObject>
-        <businessObject qualifiedName="ny.rina.model.TypeChambre">
+        <businessObject qualifiedName="com.company.model.Facture">
             <fields>
-                <field type="STRING" length="255" name="type" nullable="true" collection="false"/>
-                <field type="DOUBLE" length="255" name="prix" nullable="true" collection="false"/>
+                <field type="OFFSETDATETIME" length="255" name="dateFacture" nullable="true" collection="false"/>
+                <field type="DOUBLE" length="255" name="montant" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="reservation" nullable="true" collection="false"/>
             </fields>
             <uniqueConstraints/>
             <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.Reservation">
+            <fields>
+                <field type="TEXT" length="255" name="nomClient" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="pieceIdentite" nullable="true" collection="false"/>
+                <relationField type="AGGREGATION" reference="com.company.model.Chambre" fetchType="LAZY" name="chambre" nullable="true" collection="false"/>
+                <field type="OFFSETDATETIME" length="255" name="dateArrive" nullable="true" collection="false"/>
+                <field type="OFFSETDATETIME" length="255" name="dateDebut" nullable="true" collection="false"/>
+                <field type="DOUBLE" length="255" name="montantTotal" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+        <businessObject qualifiedName="com.company.model.TypeChambre">
+            <fields>
+                <field type="STRING" length="255" name="nom" nullable="true" collection="false"/>
+                <field type="DOUBLE" length="255" name="tarif" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries>
+                <query name="findTypeByNom" content="SELECT t&#10;FROM TypeChambre t&#10;WHERE t.nom = :nom" returnType="com.company.model.TypeChambre">
+                    <queryParameters>
+                        <queryParameter name="nom" className="java.lang.String"/>
+                    </queryParameters>
+                </query>
+            </queries>
             <indexes/>
         </businessObject>
     </businessObjects>
